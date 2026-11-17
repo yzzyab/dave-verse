@@ -1,0 +1,48 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #161820 url("Site Background.png") center / cover fixed no-repeat;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+main { width: min(1120px, 92%); margin: auto; padding: 48px 0 24px; }
+.hero { text-align: center; margin-bottom: 40px; }
+h1 { margin: 0; font-size: clamp(22px, 4vw, 36px); }
+.hero span, h2, footer p { background: #13131bee; border-radius: 8px; }
+.hero span { display: inline-block; padding: .18em .55em; }
+.hero img {
+  display: block;
+  width: min(100%, 620px);
+  margin: 12px auto 0;
+  filter: drop-shadow(0 0 7px white) drop-shadow(0 0 16px white);
+}
+section + section { margin-top: 42px; }
+h2 { width: fit-content; margin: 0 auto 16px; padding: .35em .65em; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 2vw, 20px); }
+.card {
+  position: relative;
+  display: grid;
+  align-items: end;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid #ffffff90;
+  border-radius: 10px;
+  background: #20232e;
+  box-shadow: 0 6px 20px #0008;
+  color: inherit;
+  text-decoration: none;
+}
+.card img, .card video, .card::after { position: absolute; inset: 0; width: 100%; height: 100%; }
+.card img, .card video { object-fit: cover; z-index: -2; transition: filter .2s, transform .2s; }
+.card::after { content: ""; z-index: -1; background: linear-gradient(transparent 40%, #000e); }
+.card span { padding: 12px 6px; text-align: center; font-weight: 800; font-size: clamp(14px, 2vw, 23px); text-shadow: 0 2px 6px #000; }
+.card:hover :is(img, video), .card:focus-visible :is(img, video) { filter: blur(6px); transform: scale(1.07); }
+a:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+footer p { max-width: 740px; margin: 42px auto 0; padding: 12px 16px; font-size: 13px; line-height: 1.55; text-align: center; }
+.watch { width: min(850px, 92%); text-align: center; }
+.watch h1 { margin: 20px 0; text-shadow: 0 2px 6px #000; }
+.watch a { display: inline-block; padding: 8px 14px; border-radius: 8px; color: white; background: #13131b; }
+.watch video { display: block; width: 100%; max-height: 75vh; background: black; border-radius: 10px; }
+@media (max-width: 680px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .card img, .card video { transition: none; } }
